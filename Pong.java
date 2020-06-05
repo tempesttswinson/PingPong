@@ -11,8 +11,7 @@ public class Pong extends Canvas {
     Rectangle paddle1;
     // instantiate a second paddle
     Rectangle paddle2;
-    // Random rand = new Random();
-    // Random rand2 = new Random();
+    // Created sscore variables for each player
     int player1 = 0;
     int player2 = 0;
 
@@ -56,6 +55,7 @@ public class Pong extends Canvas {
         g2.setColor(Color.pink);
         g2.fill(paddle2);
 
+        // displays the score on the screen
         g2.setColor(Color.black);
         g2.setFont(new Font("Ariel", 1, 40));
         g2.drawString(Integer.toString(player1), 325, 50);
@@ -75,6 +75,7 @@ public class Pong extends Canvas {
             }
         }
 
+        // allows the second paddle to utilize the up and down key to move
         if (e.getID() == KeyEvent.KEY_PRESSED) {
             if (e.getKeyCode() == KeyEvent.VK_UP) {
                 paddle2.y -= 10;
@@ -109,7 +110,8 @@ public class Pong extends Canvas {
             delta = new Point(-5, 5);
             player1++;
         }
-
+        // checks the score of the second player seeing if the ball goes out of bounds
+        // on the left side
         if (ball.x < 0) {
             ball.x = 500;
             ball.y = 350;
